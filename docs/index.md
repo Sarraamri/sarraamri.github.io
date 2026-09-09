@@ -37,8 +37,8 @@ build Postman collections that double as runnable API docs.
 -   :material-book-open-page-variant:{ .lg .middle } **[The Reis™ user guides](writing/reis-user-guides.md)**
 
     ---
-    Five products, 400+ pages each, English and French: the reference docs 50+ banking clients
-    work from.
+    Five products, 400+ pages each, in English and French, kept consistent with each other
+    and with the product.
     <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
 
 -   :material-file-document-multiple:{ .lg .middle } **[Reis™ TBML, a doc set from scratch](writing/tbml-doc-set.md)**
@@ -67,7 +67,7 @@ build Postman collections that double as runnable API docs.
 
 ## At a glance
 
-:books: 5 Reis™ user guides · 400+ pages each · EN & FR · 50+ banking clients · 3 release cycles · 1 product launch
+:books: 5 Reis™ user guides · 400+ pages each · EN & FR · 3 release cycles · 1 product launch
 :earth_africa: Arabic (native) · French (C1) · English (C1) · open to relocation & visa sponsorship
 :mailbox: [sarraamri2508@gmail.com](mailto:sarraamri2508@gmail.com) ·
 [LinkedIn](https://linkedin.com/in/sarra-amri-019902217) ·

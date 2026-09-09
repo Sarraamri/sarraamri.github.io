@@ -5,7 +5,6 @@
 !!! note ""
     I author the five user guides for the Reis™ compliance suite (AML, KYC, TFS, TBML and
     Studio), each 400+ pages, each maintained in both English and French, in Confluence.
-    They are the reference documentation used by 50+ banking clients.
 
 ## The guides
 
@@ -22,9 +21,8 @@ guides, two languages, one writer, kept consistent with each other and with the 
 
 ## Scale
 
-Five products · 400+ pages per guide · two languages · one writer. The suite is deployed across
-250+ financial institutions in 45+ countries, and the guides are the documentation those teams
-work from.
+Five products · 400+ pages per guide · two languages · one writer. The guides are what the people
+using each module actually work from.
 
 Maintaining that surface means the guides cannot each be their own private world: a reader who
 knows one guide has to be able to navigate the next one without relearning anything.

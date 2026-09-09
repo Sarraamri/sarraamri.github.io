@@ -9,8 +9,7 @@
 
 ## Context
 
-The Reis™ suite is used by 250+ financial institutions in 45+ countries. TBML was a brand-new
-product, which meant no existing docs to update: every structure, template, and convention had
+TBML was a brand-new product, which meant no existing docs to update: every structure, template, and convention had
 to be decided.
 
 ## The problem
