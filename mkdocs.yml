@@ -65,7 +65,8 @@ nav:
       - Reis™ TBML, a doc set from scratch: writing/tbml-doc-set.md
       - Docs QA checklist: writing/docs-qa-checklist.md
   - Projects:
+      - Reis™ KYC on Kubernetes: projects/reis-kubernetes.md
+      - Manufacturing-order tracking at SAFRAN: projects/safran-manufacturing.md
       - Terraform auto-generated docs: projects/terraform-docs.md
       - Front-end projects: projects/frontend.md
-      - Cloud & IoT projects: projects/cloud.md
   - About: about.md
