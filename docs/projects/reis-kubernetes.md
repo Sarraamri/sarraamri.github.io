@@ -51,7 +51,7 @@ The pipeline runs static analysis and the image build in parallel, then deploys 
 succeed: under 14 minutes from a push to a running update, with no manual steps.
 
 ```mermaid
-flowchart LR
+flowchart TB
   push["git push"] --> sonar["Static code analysis"]
   push --> build["Build images<br/>and push to the registry"]
   sonar --> gate{"Both jobs<br/>succeeded?"}

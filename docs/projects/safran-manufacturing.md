@@ -28,7 +28,7 @@ Order states are colour-coded on the board, so status is readable at a glance ra
 up.
 
 ```mermaid
-flowchart LR
+flowchart TB
   order["Manufacturing order<br/>with its printed barcode"] --> entry["Scan at the<br/>workshop entry"]
   order --> exit["Scan at the<br/>workshop exit"]
   entry --> pi["Script running<br/>on the Raspberry Pi"]

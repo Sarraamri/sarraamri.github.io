@@ -309,6 +309,8 @@
 .md-typeset table:not([class]) tr:hover td { background: color-mix(in srgb, var(--sa-line) 45%, transparent); }
 
 /* --- 9. Admonitions ------------------------------------------------------ */
+/* Material types these with `.admonition.note` (three classes), so the
+   per-type rules below have to match that specificity or they silently lose. */
 
 .md-typeset .admonition,
 .md-typeset details {
@@ -318,36 +320,49 @@
   box-shadow: none;
   font-size: .75rem;
 }
-.md-typeset .admonition-title,
-.md-typeset summary {
-  background: none;
+
+/* kill Material's tinted title strip in every type */
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background-color: transparent;
+  border: none;
   font-family: "Fredoka", "Nunito", sans-serif;
   font-weight: 600;
   color: var(--sa-ink);
+  padding-left: 2.2rem;
 }
-/* Material draws the type icon in a coloured strip; make it a rounded chip */
-.md-typeset .admonition-title::before,
-.md-typeset summary::before {
-  border-radius: 8px;
-  padding: .1rem;
-}
-.md-typeset .note        { border-color: var(--sa-lilac); }
-.md-typeset .tip         { border-color: var(--sa-mint); }
-.md-typeset .warning     { border-color: var(--sa-butter); }
-.md-typeset .failure,
-.md-typeset .danger      { border-color: var(--sa-rose); }
-.md-typeset .success     { border-color: var(--sa-mint); }
-.md-typeset .example     { border-color: var(--sa-line); }
 
-/* a dashed "sticker" box for page lead-ins */
-.md-typeset .sticker {
+/* the type icon becomes an ink glyph rather than a coloured bar */
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details > summary::before {
+  background-color: var(--sa-ink);
+  top: .55rem;
+  left: .8rem;
+}
+
+.md-typeset .admonition.note,     .md-typeset details.note     { border-color: var(--sa-lilac); }
+.md-typeset .admonition.tip,      .md-typeset details.tip      { border-color: var(--sa-mint); }
+.md-typeset .admonition.success,  .md-typeset details.success  { border-color: var(--sa-mint); }
+.md-typeset .admonition.warning,  .md-typeset details.warning  { border-color: var(--sa-butter); }
+.md-typeset .admonition.failure,  .md-typeset details.failure,
+.md-typeset .admonition.danger,   .md-typeset details.danger   { border-color: var(--sa-rose); }
+.md-typeset .admonition.example,  .md-typeset details.example  { border-color: var(--sa-line); }
+.md-typeset .admonition.quote,    .md-typeset details.quote    { border-color: var(--sa-line); }
+
+.md-typeset details summary { cursor: pointer; }
+.md-typeset details[open] > summary { border-bottom: 1.5px solid var(--sa-line); }
+
+/* a dashed lead-in box: used explicitly as `!!! sticker`, and applied
+   automatically to the empty-title note each page opens with */
+.md-typeset .admonition.sticker { border-style: dashed; border-color: var(--sa-lilac); }
+.md-typeset .admonition.sticker > .admonition-title { display: none; }
+
+.md-typeset .admonition > .admonition-title:empty { display: none; }
+
+.md-typeset .admonition.note:has(> .admonition-title:empty) {
   border-style: dashed;
   border-color: var(--sa-lilac);
 }
-.md-typeset .sticker > .admonition-title { display: none; }
-
-/* an empty-title note reads as a lead paragraph, so hide the bar */
-.md-typeset .admonition > .admonition-title:empty { display: none; }
 
 /* --- 10. Code ------------------------------------------------------------ */
 
