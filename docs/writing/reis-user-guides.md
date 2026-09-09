@@ -9,16 +9,16 @@
 
 ## The guides
 
-<!-- TODO: confirm/rewrite the "What it covers" cells: TFS and Studio are my best guess and
-must match how Vneuron actually describes the products. -->
-
-| Guide | What it covers | Notes |
+| Guide | Languages | Notes |
 | --- | --- | --- |
-| **Reis™ AML** | Anti-money-laundering monitoring | EN · FR |
-| **Reis™ KYC** | Know-your-customer / customer due diligence | EN · FR |
-| **Reis™ TFS** | `TODO confirm: targeted financial sanctions screening?` | EN · FR · documented for versions 5.2 and 5.3 |
-| **Reis™ TBML** | Trade-based money laundering detection | EN · FR · [built from scratch](tbml-doc-set.md) |
-| **Reis™ Studio** | `TODO confirm: configuration / administration workspace?` | EN · FR |
+| **Reis™ AML** | EN · FR | |
+| **Reis™ KYC** | EN · FR | |
+| **Reis™ TFS** | EN · FR | maintained across two product versions |
+| **Reis™ TBML** | EN · FR | [built from scratch](tbml-doc-set.md) |
+| **Reis™ Studio** | EN · FR | |
+
+What each module does is Vneuron's to describe, not mine. What is mine is the documentation: five
+guides, two languages, one writer, kept consistent with each other and with the product.
 
 ## Scale
 

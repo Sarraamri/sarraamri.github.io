@@ -16,6 +16,23 @@ Reis™ KYC ran as five services deployed by hand. A crashed service stayed down
 noticed and went to the server. There was no rollback, no automated delivery, and no visibility
 into what the platform was doing while it ran.
 
+```mermaid
+flowchart LR
+  subgraph BEFORE["Before"]
+    direction TB
+    b1["Engineer connects<br/>to the server"] --> b2["Installs and configures<br/>each service by hand"]
+    b2 --> b3["A service fails"]
+    b3 --> b4["Stays down until<br/>somebody notices"]
+  end
+  subgraph AFTER["After"]
+    direction TB
+    a1["git push"] --> a2["Pipeline builds,<br/>checks and deploys"]
+    a2 --> a3["A service fails"]
+    a3 --> a4["Replaced automatically<br/>in 12 seconds"]
+  end
+  BEFORE ~~~ AFTER
+```
+
 ## What I did
 
 I picked the orchestrator against documented criteria rather than by preference, comparing Docker
@@ -32,6 +49,20 @@ before starting the next one:
 
 The pipeline runs static analysis and the image build in parallel, then deploys only if both
 succeed: under 14 minutes from a push to a running update, with no manual steps.
+
+```mermaid
+flowchart LR
+  push["git push"] --> sonar["Static code analysis"]
+  push --> build["Build images<br/>and push to the registry"]
+  sonar --> gate{"Both jobs<br/>succeeded?"}
+  build --> gate
+  gate -->|no| stop["Pipeline stops.<br/>Nothing is deployed."]
+  gate -->|yes| deploy["Rolling deployment"]
+  deploy --> confirm["Wait for the rollout<br/>to report complete"]
+```
+
+The gate matters more than the speed: a failed check cannot reach the running platform, because
+the deployment job never starts.
 
 ## How I validated it
 

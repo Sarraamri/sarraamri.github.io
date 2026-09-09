@@ -27,6 +27,16 @@ scanner feeding a script on a Raspberry Pi, which updates the order's state in t
 Order states are colour-coded on the board, so status is readable at a glance rather than looked
 up.
 
+```mermaid
+flowchart LR
+  order["Manufacturing order<br/>with its printed barcode"] --> entry["Scan at the<br/>workshop entry"]
+  order --> exit["Scan at the<br/>workshop exit"]
+  entry --> pi["Script running<br/>on the Raspberry Pi"]
+  exit --> pi
+  pi --> app["Web application"]
+  app --> board["The order's cell changes<br/>colour on the board"]
+```
+
 The hardware was chosen the same way I would later choose an orchestrator: Raspberry Pi 4 and
 Arduino Uno compared against processing power, flexibility and ease of use, with the reasoning
 written down.
