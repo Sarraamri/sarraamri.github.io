@@ -1,6 +1,6 @@
 site_name: Sarra Amri · Technical Writer & QA
 site_url: https://sarraamri.github.io/
-site_description: Technical Writer at Vneuron — QA in practice. Documentation, testing, docs-as-code.
+site_description: Technical Writer at Vneuron · QA in practice. Documentation, testing, docs-as-code.
 repo_url: https://github.com/Sarraamri/sarraamri.github.io
 repo_name: Sarraamri/sarraamri.github.io
 
@@ -59,13 +59,13 @@ nav:
   - QA Work:
       - Defects I find while documenting: qa/defects.md
       - Postman collection in CI: qa/postman-ci.md
-      - Test scenarios — Reis™ TBML: qa/test-scenarios.md
+      - Test scenarios for Reis™ TBML: qa/test-scenarios.md
   - Writing:
       - The Reis™ user guides: writing/reis-user-guides.md
-      - Reis™ TBML — a doc set from scratch: writing/tbml-doc-set.md
+      - Reis™ TBML, a doc set from scratch: writing/tbml-doc-set.md
       - Docs QA checklist: writing/docs-qa-checklist.md
   - Projects:
       - Terraform auto-generated docs: projects/terraform-docs.md
       - Front-end projects: projects/frontend.md
-      - Cloud projects: projects/cloud.md
+      - Cloud & IoT projects: projects/cloud.md
   - About: about.md

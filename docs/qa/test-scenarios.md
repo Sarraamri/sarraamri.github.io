@@ -8,7 +8,7 @@
 
 ## My approach
 
-<!-- TODO: describe your real process. Suggested shape below — edit to match reality: -->
+<!-- TODO: describe your real process. Suggested shape below, edit to match reality: -->
 Start from the user workflow as documented in the guide; derive the happy path as P1, then
 alternate paths, then error and edge cases. One test scenario per documented workflow, so the
 documentation and the tests stay in sync by construction.
@@ -26,5 +26,5 @@ documentation and the tests stay in sync by construction.
 ## What this shows
 
 - :white_check_mark: Test design as part of my actual job, not an aspiration
-- :white_check_mark: Coverage thinking — happy path → alternates → edge cases
+- :white_check_mark: Coverage thinking: happy path → alternates → edge cases
 - :white_check_mark: Docs and tests as one system

@@ -4,7 +4,7 @@
 
 !!! note "The idea"
     A Postman collection covering authentication, CRUD flows, and common error cases for a REST
-    API — written so that the documentation **is** the test suite. Newman runs the full collection
+    API, written so that the documentation **is** the test suite. Newman runs the full collection
     in GitHub Actions on every push: if an example in the docs stops working, the build fails.
 
 ## Context
@@ -15,11 +15,11 @@ that cannot silently go stale.
 
 ## What's inside
 
-- **Auth flow** — token retrieval, expiry, refresh, with tested examples
+- **Auth flow**: token retrieval, expiry, refresh, with tested examples
 - **CRUD requests** for each resource, expected responses saved as examples
-- **Error cases** — missing auth (`401`), bad input (`400`), not found (`404`), rate limiting
-  (`429`) — each with assertions on status code and response body
-- **Newman + GitHub Actions** — the collection runs on every push; failures block the merge
+- **Error cases**: missing auth (`401`), bad input (`400`), not found (`404`), rate limiting
+  (`429`), each with assertions on status code and response body
+- **Newman + GitHub Actions**: the collection runs on every push; failures block the merge
 
 ```yaml title=".github/workflows/api-tests.yml (excerpt)"
 # TODO: paste the real excerpt from your repo
@@ -38,5 +38,5 @@ assertions visible: ![CI run](../assets/postman-ci-green.png) -->
 ## What this shows
 
 - :white_check_mark: API testing with assertions, not just example requests
-- :white_check_mark: CI/CD thinking applied to quality — tests on every push
+- :white_check_mark: CI/CD thinking applied to quality: tests on every push
 - :white_check_mark: The docs-as-code / QA overlap I want to work in
