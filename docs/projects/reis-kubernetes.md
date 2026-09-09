@@ -116,6 +116,6 @@ alongside automated load testing in the pipeline and immutable image tags.
 
 ## What this shows
 
-- :white_check_mark: Requirements written first, tested one by one, with partial results reported as partial
-- :white_check_mark: Technology chosen against documented criteria, not preference
-- :white_check_mark: Delivery in iterations, each gated by an acceptance criterion I had to meet
+- :material-check-circle:{ .sa-check } Requirements written first, tested one by one, with partial results reported as partial
+- :material-check-circle:{ .sa-check } Technology chosen against documented criteria, not preference
+- :material-check-circle:{ .sa-check } Delivery in iterations, each gated by an acceptance criterion I had to meet

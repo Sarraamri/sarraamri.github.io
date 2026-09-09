@@ -44,6 +44,6 @@ how you track what still needs updating after a release, and what you check befo
 
 ## What this shows
 
-- :white_check_mark: Ownership of a large documentation estate: five products, not one page set
-- :white_check_mark: Bilingual production documentation (EN/FR) kept in sync
-- :white_check_mark: Consistency at scale: shared structure and conventions across every guide
+- :material-check-circle:{ .sa-check } Ownership of a large documentation estate: five products, not one page set
+- :material-check-circle:{ .sa-check } Bilingual production documentation (EN/FR) kept in sync
+- :material-check-circle:{ .sa-check } Consistency at scale: shared structure and conventions across every guide

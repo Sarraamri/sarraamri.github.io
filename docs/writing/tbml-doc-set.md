@@ -38,6 +38,6 @@ anything measurable you can truthfully claim. -->
 
 ## What this shows
 
-- :white_check_mark: Building documentation architecture from scratch, not just maintaining
-- :white_check_mark: Writing against a moving target: documenting during development
-- :white_check_mark: Bilingual production documentation (EN/FR)
+- :material-check-circle:{ .sa-check } Building documentation architecture from scratch, not just maintaining
+- :material-check-circle:{ .sa-check } Writing against a moving target: documenting during development
+- :material-check-circle:{ .sa-check } Bilingual production documentation (EN/FR)

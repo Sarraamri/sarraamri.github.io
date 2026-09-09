@@ -523,3 +523,177 @@ button:focus-visible,
   .md-typeset .grid.cards > ul > li:hover,
   .md-typeset .md-button:hover { transform: none; }
 }
+
+
+/* ==========================================================================
+   15. Corrections after a full-site styling audit
+   Appended deliberately: these rules must out-specify Material 9.7.7 and
+   palette.css, both of which declare on <body> and beat inherited :root.
+   ========================================================================== */
+
+/* --- 15a. Material variables that were never set, so indigo survived ----- */
+
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-accent-bg-color:              #2B2540;
+  --md-primary-fg-color--dark:       var(--sa-ink);
+  --md-primary-fg-color--light:      var(--sa-soft);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--sa-lilac) 18%, transparent);
+  --md-code-fg-color:                var(--sa-ink);
+  --md-default-fg-color--lighter:    var(--sa-edge);
+  --md-default-fg-color--lightest:   var(--sa-line);
+}
+
+:root, [data-md-color-scheme="default"] {
+  --sa-edge:      #A9A4B8;   /* container borders, --sa-line was 1.25:1 and invisible */
+  --sa-underline: #6E52D9;   /* link underline, 5.1:1 on paper */
+  --md-code-bg-color:          #F2EEFA;
+  --md-code-bg-color--light:   #F6F3FC;
+  --md-code-bg-color--lighter: #FAF8FE;
+}
+
+[data-md-color-scheme="slate"] {
+  --sa-edge:      #5F5A80;
+  --sa-underline: var(--sa-lilac);
+  --md-code-bg-color:          #232032;
+  --md-code-bg-color--light:   #272438;
+  --md-code-bg-color--lighter: #2B283E;
+}
+
+/* palette.css declares these on <body>, so match its specificity */
+[data-md-color-scheme="slate"][data-md-color-accent] { --md-accent-fg-color: var(--sa-lilac); }
+[data-md-color-scheme="slate"][data-md-color-primary] { --md-typeset-a-color: var(--sa-ink); }
+
+/* --- 15b. Links: the underline was the only affordance, and it failed ---- */
+
+.md-typeset a { border-bottom-color: var(--sa-underline); }
+
+/* hover becomes a real highlighter: butter behind ink text, legible in both
+   schemes, instead of a butter underline that vanished on paper */
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  background: var(--sa-butter);
+  color: #2B2540;
+  border-bottom-color: #2B2540;
+  border-bottom-width: 3px;
+  border-radius: 3px;
+}
+.md-typeset .md-button:hover,
+.md-typeset .sa-pill:hover,
+.md-typeset .grid.cards a:hover { background: none; }
+.md-typeset .md-button--primary:hover { background: var(--sa-ink); color: var(--sa-paper); }
+.md-typeset .sa-pill:hover { background: var(--sa-lilac); color: #2B2540; }
+
+/* card titles need an affordance of their own: bold alone is not one */
+.md-typeset .grid.cards a { border-bottom: 3px solid transparent; }
+.md-typeset .grid.cards > ul > li:hover a { border-bottom-color: var(--sa-lilac); }
+.md-typeset .grid.cards > ul > li:hover a:hover { background: none; color: var(--sa-ink); }
+
+/* --- 15c. Container edges, which were invisible at 1.25:1 ---------------- */
+
+.md-typeset .grid.cards > ul > li {
+  border-color: var(--sa-edge);
+  box-shadow: 3px 3px 0 var(--sa-line);
+}
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--sa-ink); box-shadow: 5px 5px 0 var(--sa-lilac); }
+.md-typeset table:not([class]) { border-color: var(--sa-edge); }
+.md-typeset .admonition, .md-typeset details { border-color: var(--sa-edge); }
+.sa-row { border-color: var(--sa-edge); }
+
+/* --- 15d. The dashed lead-in never applied ------------------------------- */
+/* `!!! note ""` emits NO title element, so `:empty` matched nothing on all
+   six pages that open this way. */
+
+.md-typeset .admonition.note:not(:has(> .admonition-title)) {
+  border-style: dashed;
+  border-color: var(--sa-lilac);
+}
+
+/* --- 15e. Collapsibles kept Material's purple --------------------------- */
+/* Material types these `.example > summary` (0,2,1); the earlier rule was
+   `details > summary` (0,1,2) and lost. `[class]` lifts it to (0,2,2). */
+
+.md-typeset details[class] > summary {
+  background-color: transparent;
+  border: none;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--sa-ink);
+  padding-left: 2.2rem;
+}
+.md-typeset details[class] > summary::before { background-color: var(--sa-ink); top: .55rem; left: .8rem; }
+.md-typeset details[class] > summary::after  { color: var(--sa-soft); }
+
+/* --- 15f. Mobile drawer: unreadable active link and an indigo slab ------- */
+
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active,
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active:hover,
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active:focus {
+  background: var(--sa-lilac);
+  color: #2B2540;
+}
+.md-nav__source { background-color: var(--sa-lilac); color: #2B2540; }
+.md-nav--primary .md-nav__title { background: var(--sa-paper); color: var(--sa-ink); box-shadow: none; }
+
+/* --- 15g. Search: highlight colour, icon, and the pill losing its shape -- */
+
+.md-search-result mark { color: var(--sa-ink); background-color: var(--sa-butter); }
+.md-search__form .md-search__icon { color: var(--sa-soft); }
+.md-search__form:hover { background: var(--sa-card); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  border-radius: 22px 22px 0 0;
+  box-shadow: none;
+  background: var(--sa-card);
+}
+.md-search__output { border-radius: 0 0 22px 22px; }
+
+/* --- 15h. Back-to-top button and the code copy button ------------------- */
+
+.md-top {
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  border: 2px solid var(--sa-ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-top:focus, .md-top:hover { background: var(--sa-lilac); color: #2B2540; }
+
+.md-code__nav { background-color: var(--sa-card); border: 1.5px solid var(--sa-edge); border-radius: 8px; }
+.md-code__button { color: var(--sa-soft); }
+.md-code__button:hover, .md-code__button.focus-visible { color: var(--sa-ink); }
+
+/* --- 15i. Focus ring failed 3:1 on paper -------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.md-tabs__link:focus-visible,
+.sa-pill:focus-visible {
+  outline: 3px solid var(--sa-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--sa-lilac);
+}
+
+/* --- 15j. Classes I authored and never styled --------------------------- */
+
+.md-typeset .lede,
+.md-typeset .lede p {
+  font-size: .88rem;
+  color: var(--sa-soft);
+  max-width: 60ch;
+}
+
+/* icon squares: cycle every three so a 4-card grid keeps working, and give
+   .sa-icon a default so a fourth row is never left transparent */
+.sa-row .sa-icon { background: var(--sa-lilac); }
+.sa-row:nth-child(3n+1) .sa-icon { background: var(--sa-butter); }
+.sa-row:nth-child(3n+2) .sa-icon { background: var(--sa-mint); }
+
+/* mermaid subgraph clusters were falling back to Material's neutral greys */
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="slate"] {
+  --md-mermaid-node-bg-color: var(--sa-mint);
+}
+
+/* checklist ticks: inline SVG that inherits currentColor, replacing the
+   CDN-hosted Twemoji images whose green could not be themed */
+.md-typeset .sa-check { color: var(--sa-underline); vertical-align: -.15em; }

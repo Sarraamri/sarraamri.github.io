@@ -39,7 +39,7 @@ theme:
     - content.code.copy
 
 extra_css:
-  - stylesheets/extra.css?v=2
+  - stylesheets/extra.css?v=3
 
 markdown_extensions:
   - admonition

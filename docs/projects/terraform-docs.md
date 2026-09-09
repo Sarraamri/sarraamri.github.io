@@ -27,6 +27,6 @@
 
 ## What this shows
 
-- :white_check_mark: Docs-as-code end to end: source → generated reference → CI
-- :white_check_mark: Real AWS/Terraform hands-on work
-- :white_check_mark: Automation instinct: quality gates instead of manual discipline
+- :material-check-circle:{ .sa-check } Docs-as-code end to end: source → generated reference → CI
+- :material-check-circle:{ .sa-check } Real AWS/Terraform hands-on work
+- :material-check-circle:{ .sa-check } Automation instinct: quality gates instead of manual discipline

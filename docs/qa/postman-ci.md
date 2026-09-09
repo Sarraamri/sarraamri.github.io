@@ -37,6 +37,6 @@ assertions visible: ![CI run](../assets/postman-ci-green.png) -->
 
 ## What this shows
 
-- :white_check_mark: API testing with assertions, not just example requests
-- :white_check_mark: CI/CD thinking applied to quality: tests on every push
-- :white_check_mark: The docs-as-code / QA overlap I want to work in
+- :material-check-circle:{ .sa-check } API testing with assertions, not just example requests
+- :material-check-circle:{ .sa-check } CI/CD thinking applied to quality: tests on every push
+- :material-check-circle:{ .sa-check } The docs-as-code / QA overlap I want to work in

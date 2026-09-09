@@ -65,6 +65,6 @@ made every scan a pass or a fail.
 
 ## What this shows
 
-- :white_check_mark: Specifications written with preconditions and exception paths, which are test cases in all but name
-- :white_check_mark: Validation in real conditions, with the real users doing the work
-- :white_check_mark: Hardware chosen against documented criteria, not preference
+- :material-check-circle:{ .sa-check } Specifications written with preconditions and exception paths, which are test cases in all but name
+- :material-check-circle:{ .sa-check } Validation in real conditions, with the real users doing the work
+- :material-check-circle:{ .sa-check } Hardware chosen against documented criteria, not preference

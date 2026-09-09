@@ -61,6 +61,6 @@
 
 ## What this shows
 
-- :white_check_mark: Real defect tracking in Jira, in production software: daily, not aspirational
-- :white_check_mark: Reproduction steps a developer can follow on the first try
-- :white_check_mark: Severity judgment and edge-case instinct (keyboard paths, state after refresh)
+- :material-check-circle:{ .sa-check } Real defect tracking in Jira, in production software: daily, not aspirational
+- :material-check-circle:{ .sa-check } Reproduction steps a developer can follow on the first try
+- :material-check-circle:{ .sa-check } Severity judgment and edge-case instinct (keyboard paths, state after refresh)

@@ -25,6 +25,6 @@ documentation and the tests stay in sync by construction.
 
 ## What this shows
 
-- :white_check_mark: Test design as part of my actual job, not an aspiration
-- :white_check_mark: Coverage thinking: happy path → alternates → edge cases
-- :white_check_mark: Docs and tests as one system
+- :material-check-circle:{ .sa-check } Test design as part of my actual job, not an aspiration
+- :material-check-circle:{ .sa-check } Coverage thinking: happy path → alternates → edge cases
+- :material-check-circle:{ .sa-check } Docs and tests as one system
