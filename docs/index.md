@@ -1,11 +1,15 @@
+<div class="hero" markdown>
+
 # Hi, I'm Sarra :wave:
 
-**Technical Writer at Vneuron Risk & Compliance · QA in practice: I test everything I document.**
+<p class="tagline">Technical Writer at Vneuron Risk &amp; Compliance · QA in practice: I test everything I document.</p>
 
 2+ years documenting the Reis™ compliance suite: I author its **five user guides** (AML, KYC, TFS,
 TBML and Studio), 400+ pages each, in English and French, including the TBML set built from scratch
 for a product launch. I verify every feature I write about, file Jira tickets for what breaks, and
 build Postman collections that double as runnable API docs.
+
+</div>
 
 !!! tip "The medium is the message"
     This site is itself a docs-as-code sample: written in Markdown, versioned on
@@ -43,13 +47,23 @@ build Postman collections that double as runnable API docs.
     User & admin guides, API references, release notes for a new product, in English and French.
     <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
 
--   :material-cube-outline:{ .lg .middle } **[Terraform modules, auto-generated docs](projects/terraform-docs.md)**
+-   :material-kubernetes:{ .lg .middle } **[Reis™ KYC on Kubernetes](projects/reis-kubernetes.md)**
 
     ---
-    terraform-docs + GitHub Actions: reference docs that fail the build if they drift.
-    <span class="badge b-doc">Docs as code</span><span class="badge b-perso">Personal</span>
+    A platform moved off manual deployment, validated against 16 requirements I wrote first:
+    14 pass, 2 partial, 0 fail.
+    <span class="badge b-qa">Test design</span><span class="badge b-work">Work</span>
+
+-   :material-barcode-scan:{ .lg .middle } **[Manufacturing-order tracking at SAFRAN](projects/safran-manufacturing.md)**
+
+    ---
+    Barcode scanning on the shop floor feeding three live dashboards, validated by the production
+    agents themselves.
+    <span class="badge b-qa">Test design</span><span class="badge b-perso">End-of-studies</span>
 
 </div>
+
+[See all projects](projects/index.md){ .md-button }
 
 ## At a glance
 
