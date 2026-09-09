@@ -1,0 +1,795 @@
+/* ==========================================================================
+   Sarra Amri, portfolio theme: "notebook" palette
+   Soft lilac paper, chunky ink outlines, hard offset shadows, no blur.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
+
+/* --- 1. Design tokens ---------------------------------------------------- */
+
+:root, [data-md-color-scheme="default"] {
+  --sa-paper:  #FBF8FF;
+  --sa-ink:    #2B2540;
+  --sa-soft:   #6C6685;
+  --sa-lilac:  #B9A7FF;
+  --sa-mint:   #A8ECD7;
+  --sa-butter: #FFE29A;
+  --sa-rose:   #FFB8C9;
+  --sa-line:   #E8E3F5;
+  --sa-card:   #ffffff;
+
+  --sa-radius:    22px;
+  --sa-radius-sm: 16px;
+  --sa-outline:   2.5px;
+
+  /* Material plumbing: fg on the header bar is its background, bg is its text */
+  --md-primary-fg-color:    var(--sa-paper);
+  --md-primary-bg-color:    var(--sa-ink);
+  --md-accent-fg-color:     var(--sa-lilac);
+  --md-default-bg-color:    var(--sa-paper);
+  --md-default-fg-color:    var(--sa-ink);
+  --md-typeset-a-color:     var(--sa-ink);
+  --md-typeset-color:       var(--sa-ink);
+
+  /* keep the diagrams on-palette instead of leaving them navy */
+  --md-mermaid-node-bg-color:    var(--sa-mint);
+  --md-mermaid-node-fg-color:    var(--sa-ink);
+  --md-mermaid-label-fg-color:   var(--sa-ink);
+  --md-mermaid-edge-color:       var(--sa-ink);
+  --md-mermaid-font-family:      "Nunito", sans-serif;
+}
+
+[data-md-color-scheme="slate"] {
+  --sa-paper:  #1E1B2E;
+  --sa-ink:    #F3EFFF;
+  --sa-soft:   #A79FC4;
+  --sa-line:   #3A3556;
+  --sa-card:   #2A2640;
+  /* the four accents stay identical so the site reads the same in both modes */
+
+  --md-primary-fg-color: var(--sa-paper);
+  --md-primary-bg-color: var(--sa-ink);
+  --md-default-bg-color: var(--sa-paper);
+  --md-default-fg-color: var(--sa-ink);
+  --md-typeset-a-color:  var(--sa-ink);
+
+  --md-mermaid-node-bg-color:  #3a3556;
+  --md-mermaid-node-fg-color:  var(--sa-ink);
+  --md-mermaid-label-fg-color: var(--sa-ink);
+  --md-mermaid-edge-color:     var(--sa-ink);
+}
+
+/* --- 2. Typography ------------------------------------------------------- */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-header__title,
+.sa-display {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.md-typeset h1 { font-size: 2.1rem; line-height: 1.1; color: var(--sa-ink); }
+.md-typeset h2 { font-size: 1.45rem; line-height: 1.2; margin-top: 2.2em; }
+.md-typeset h3 { font-size: 1.1rem; }
+.md-typeset    { font-size: .8rem; line-height: 1.62; }
+.md-typeset p  { max-width: 70ch; }
+
+/* links: lilac underline that becomes a butter highlighter on hover */
+.md-typeset a {
+  color: var(--sa-ink);
+  text-decoration: none;
+  border-bottom: 3px solid var(--sa-lilac);
+  padding-bottom: 1px;
+  transition: border-color .15s ease, border-width .15s ease;
+}
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  border-bottom-color: var(--sa-butter);
+  border-bottom-width: 6px;
+}
+.md-typeset a.md-button,
+.md-typeset a.sa-btn,
+.md-typeset .sa-pill,
+.md-typeset .grid.cards a,
+.md-typeset .md-nav a { border-bottom: none; }
+
+/* chrome links keep their own styling, no highlighter */
+.md-footer a,
+.md-footer__link,
+.md-copyright a,
+.md-social__link,
+.md-header a,
+.md-tabs a { border-bottom: none !important; }
+
+/* --- 3. Header, tabs, banner -------------------------------------------- */
+
+.md-header {
+  background-color: var(--sa-paper);
+  color: var(--sa-ink);
+  box-shadow: none;
+  border-bottom: 1.5px solid var(--sa-line);
+}
+
+.md-header__title { font-size: 1.05rem; }
+
+.md-tabs {
+  background-color: var(--sa-paper);
+  color: var(--sa-ink);
+  border-bottom: 1.5px solid var(--sa-line);
+}
+
+.md-tabs__list { padding: .35rem 0; }
+
+.md-tabs__link {
+  opacity: 1;
+  color: var(--sa-soft);
+  font-weight: 700;
+  padding: .32rem .8rem;
+  border-radius: 999px;
+  margin-right: .3rem;
+  transition: background-color .15s ease, color .15s ease;
+}
+.md-tabs__link:hover { background: var(--sa-line); color: var(--sa-ink); }
+.md-tabs__item--active .md-tabs__link {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
+}
+
+/* search field as a rounded outline */
+.md-search__form {
+  border-radius: 999px;
+  background: var(--sa-card);
+  border: 1.5px solid var(--sa-line);
+  box-shadow: none;
+}
+.md-search__input { color: var(--sa-ink); }
+.md-search__input::placeholder { color: var(--sa-soft); }
+.md-search__icon { color: var(--sa-soft); }
+
+/* the work-in-progress bar becomes a rose sticker strip */
+.md-banner {
+  background: var(--sa-rose);
+  color: #2B2540;
+  border-bottom: var(--sa-outline) solid #2B2540;
+  font-size: .74rem;
+  font-weight: 700;
+}
+.md-banner a { color: #2B2540; border-bottom: 3px solid #2B2540; }
+.md-banner__button { color: #2B2540; }
+
+/* --- 4. Sidebar and table of contents ----------------------------------- */
+
+.md-nav__title { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600; color: var(--sa-ink); }
+
+.md-nav__link {
+  border-radius: 999px;
+  padding: .28rem .6rem;
+  color: var(--sa-soft);
+  font-weight: 700;
+}
+.md-nav__link:hover { background: var(--sa-line); color: var(--sa-ink); }
+
+.md-nav__item .md-nav__link--active {
+  background: var(--sa-lilac);
+  color: #2B2540;
+}
+
+/* right-hand table of contents: lilac bar on the active item */
+.md-nav--secondary .md-nav__link {
+  border-radius: 0;
+  border-left: 3px solid transparent;
+  padding-left: .6rem;
+  font-weight: 400;
+}
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__link--passed:hover {
+  background: none;
+  border-left-color: var(--sa-lilac);
+  border-radius: 3px;
+  color: var(--sa-ink);
+  font-weight: 700;
+}
+
+/* --- 5. Cards ------------------------------------------------------------ */
+
+.md-typeset .grid.cards > ul > li {
+  border: var(--sa-outline) solid var(--sa-line);
+  border-radius: var(--sa-radius);
+  background: var(--sa-card);
+  box-shadow: none;
+  padding: 1.25rem 1.3rem;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--sa-ink);
+  transform: translateY(-2px);
+}
+
+/* icon square, coloured per card via nth-child so no markup change is needed */
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji:first-child,
+.md-typeset .grid.cards > ul > li > p:first-child > svg:first-child {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 14px;
+  padding: .45rem;
+  margin-bottom: .55rem;
+  color: #2B2540;
+  background: var(--sa-lilac);
+}
+.md-typeset .grid.cards > ul > li:nth-child(3n+1) > p:first-child > .twemoji:first-child { background: var(--sa-mint); }
+.md-typeset .grid.cards > ul > li:nth-child(3n+2) > p:first-child > .twemoji:first-child { background: var(--sa-butter); }
+
+.md-typeset .grid.cards > ul > li > hr {
+  border: none;
+  border-top: 1.5px solid var(--sa-line);
+  margin: .6rem 0 .75rem;
+}
+
+.md-typeset .grid.cards > ul > li p:not(:first-child) { color: var(--sa-soft); }
+
+/* --- 6. Badges as clean pills ------------------------------------------- */
+
+.badge {
+  display: inline-block;
+  font-family: "Nunito", sans-serif;
+  font-size: .62rem;
+  font-weight: 800;
+  padding: .18rem .6rem;
+  border-radius: 999px;
+  margin: .35rem .3rem 0 0;
+  border: 2px solid #2B2540;
+  color: #2B2540;
+  white-space: nowrap;
+}
+
+.b-work  { background: var(--sa-rose); }
+.b-perso { background: var(--sa-mint); }
+.b-qa    { background: var(--sa-lilac); }
+.b-doc   { background: var(--sa-butter); }
+
+/* the accents are identical in dark mode, so keep ink text on them */
+[data-md-color-scheme="slate"] .badge { border-color: #2B2540; color: #2B2540; }
+
+/* --- 7. Buttons ---------------------------------------------------------- */
+
+.md-typeset .md-button {
+  border-radius: 999px;
+  border: var(--sa-outline) solid var(--sa-ink);
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  font-weight: 800;
+  font-size: .74rem;
+  padding: .5rem 1.1rem;
+  box-shadow: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.md-typeset .md-button:hover {
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  border-color: var(--sa-ink);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary:hover {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
+}
+
+/* --- 8. Tables ----------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  border: 2px solid var(--sa-line);
+  border-radius: var(--sa-radius-sm);
+  overflow: hidden;
+  box-shadow: none;
+  font-size: .72rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--sa-line);
+  color: var(--sa-ink);
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  border: none;
+}
+.md-typeset table:not([class]) td {
+  border-top: 1.5px solid var(--sa-line);
+  color: var(--sa-soft);
+}
+.md-typeset table:not([class]) td:first-child { color: var(--sa-ink); font-weight: 700; }
+.md-typeset table:not([class]) tr:hover td { background: color-mix(in srgb, var(--sa-line) 45%, transparent); }
+
+/* --- 9. Admonitions ------------------------------------------------------ */
+/* Material types these with `.admonition.note` (three classes), so the
+   per-type rules below have to match that specificity or they silently lose. */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border: var(--sa-outline) solid var(--sa-line);
+  border-radius: var(--sa-radius);
+  background: var(--sa-card);
+  box-shadow: none;
+  font-size: .75rem;
+}
+
+/* kill Material's tinted title strip in every type */
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background-color: transparent;
+  border: none;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--sa-ink);
+  padding-left: 2.2rem;
+}
+
+/* the type icon becomes an ink glyph rather than a coloured bar */
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details > summary::before {
+  background-color: var(--sa-ink);
+  top: .55rem;
+  left: .8rem;
+}
+
+.md-typeset .admonition.note,     .md-typeset details.note     { border-color: var(--sa-lilac); }
+.md-typeset .admonition.tip,      .md-typeset details.tip      { border-color: var(--sa-mint); }
+.md-typeset .admonition.success,  .md-typeset details.success  { border-color: var(--sa-mint); }
+.md-typeset .admonition.warning,  .md-typeset details.warning  { border-color: var(--sa-butter); }
+.md-typeset .admonition.failure,  .md-typeset details.failure,
+.md-typeset .admonition.danger,   .md-typeset details.danger   { border-color: var(--sa-rose); }
+.md-typeset .admonition.example,  .md-typeset details.example  { border-color: var(--sa-line); }
+.md-typeset .admonition.quote,    .md-typeset details.quote    { border-color: var(--sa-line); }
+
+.md-typeset details summary { cursor: pointer; }
+.md-typeset details[open] > summary { border-bottom: 1.5px solid var(--sa-line); }
+
+/* a dashed lead-in box: used explicitly as `!!! sticker`, and applied
+   automatically to the empty-title note each page opens with */
+.md-typeset .admonition.sticker { border-style: dashed; border-color: var(--sa-lilac); }
+.md-typeset .admonition.sticker > .admonition-title { display: none; }
+
+.md-typeset .admonition > .admonition-title:empty { display: none; }
+
+.md-typeset .admonition.note:has(> .admonition-title:empty) {
+  border-style: dashed;
+  border-color: var(--sa-lilac);
+}
+
+/* --- 10. Code ------------------------------------------------------------ */
+
+.md-typeset code { border-radius: 6px; font-size: .8em; }
+.md-typeset pre > code { border-radius: var(--sa-radius-sm); }
+
+/* --- 11. Footer ---------------------------------------------------------- */
+
+.md-footer,
+.md-footer-meta {
+  background: var(--sa-paper);
+  color: var(--sa-soft);
+  border-top: 1.5px solid var(--sa-line);
+}
+.md-footer__link { color: var(--sa-ink); }
+.md-footer__title { font-family: "Fredoka", "Nunito", sans-serif; }
+.md-copyright, .md-copyright__highlight { color: var(--sa-soft); }
+.md-copyright a, .md-footer-meta a { color: var(--sa-ink); text-decoration: underline; }
+.md-social__link { color: var(--sa-ink); }
+
+/* --- 12. Home page hero -------------------------------------------------- */
+
+.sa-hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2.2rem;
+  align-items: center;
+  margin: .5rem 0 2.2rem;
+}
+
+.sa-hero h1 {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.06;
+  margin: 0 0 .7rem;
+  color: var(--sa-ink);
+}
+
+/* butter highlighter behind one word */
+.sa-mark { position: relative; z-index: 0; }
+.sa-mark::after {
+  content: "";
+  position: absolute;
+  left: -4px; right: -4px; bottom: 5px;
+  height: .38em;
+  background: var(--sa-butter);
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+  z-index: -1;
+}
+
+/* in dark mode the light text cannot sit on butter, so the highlighter
+   becomes a full block with ink text instead of an underline swipe */
+[data-md-color-scheme="slate"] .sa-mark { color: #2B2540; }
+[data-md-color-scheme="slate"] .sa-mark::after {
+  height: 1.02em;
+  bottom: -.02em;
+  border-radius: 6px;
+}
+
+.sa-hero .sa-sub {
+  font-size: .86rem;
+  color: var(--sa-soft);
+  line-height: 1.55;
+  max-width: 34rem;
+  margin-bottom: 1.1rem;
+}
+
+.sa-hero-buttons { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+/* mint blob with a round portrait on top */
+.sa-blob-wrap { position: relative; min-height: 15rem; }
+.sa-blob {
+  position: absolute;
+  inset: 1rem 2rem;
+  background: var(--sa-mint);
+  border-radius: 52% 48% 60% 40% / 45% 55% 45% 55%;
+}
+.sa-portrait {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 9rem; height: 9rem;
+  border-radius: 50%;
+  background: var(--sa-card);
+  border: 4px solid #2B2540;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  overflow: hidden;
+}
+.sa-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- 13. At a glance rows ------------------------------------------------ */
+
+.sa-rows { display: grid; gap: .6rem; margin: .8rem 0 0; }
+
+.sa-row {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: .7rem .9rem;
+  border: 2px solid var(--sa-line);
+  border-radius: 18px;
+  background: var(--sa-card);
+  font-size: .76rem;
+}
+.sa-row .sa-icon {
+  flex: none;
+  width: 2.2rem; height: 2.2rem;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+}
+.sa-row:nth-child(1) .sa-icon { background: var(--sa-butter); }
+.sa-row:nth-child(2) .sa-icon { background: var(--sa-mint); }
+.sa-row:nth-child(3) .sa-icon { background: var(--sa-lilac); }
+
+.sa-pills { display: flex; gap: .4rem; flex-wrap: wrap; }
+.sa-pill {
+  padding: .28rem .7rem;
+  border-radius: 999px;
+  border: 2px solid var(--sa-ink);
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  font-weight: 800;
+  font-size: .68rem;
+  text-decoration: none;
+}
+.sa-pill:hover { background: var(--sa-lilac); color: #2B2540; }
+
+/* --- 14. Focus, responsive, motion --------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.md-tabs__link:focus-visible,
+.sa-pill:focus-visible {
+  outline: 3px solid var(--sa-lilac);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .sa-hero { grid-template-columns: 1fr; gap: 1.2rem; }
+  .sa-hero h1 { font-size: 2rem; }
+  .sa-blob-wrap { min-height: 12rem; order: -1; }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .sa-hero h1 { font-size: 1.7rem; }
+  .sa-row { font-size: .72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .md-button { transition: none; }
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .md-button:hover { transform: none; }
+}
+
+
+/* ==========================================================================
+   15. Corrections after a full-site styling audit
+   Appended deliberately: these rules must out-specify Material 9.7.7 and
+   palette.css, both of which declare on <body> and beat inherited :root.
+   ========================================================================== */
+
+/* --- 15a. Material variables that were never set, so indigo survived ----- */
+
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-accent-bg-color:              #2B2540;
+  --md-primary-fg-color--dark:       var(--sa-ink);
+  --md-primary-fg-color--light:      var(--sa-soft);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--sa-lilac) 18%, transparent);
+  --md-code-fg-color:                var(--sa-ink);
+  --md-default-fg-color--lighter:    var(--sa-edge);
+  --md-default-fg-color--lightest:   var(--sa-line);
+}
+
+:root, [data-md-color-scheme="default"] {
+  --sa-edge:      #A9A4B8;   /* container borders, --sa-line was 1.25:1 and invisible */
+  --sa-underline: #6E52D9;   /* link underline, 5.1:1 on paper */
+  --md-code-bg-color:          #F2EEFA;
+  --md-code-bg-color--light:   #F6F3FC;
+  --md-code-bg-color--lighter: #FAF8FE;
+}
+
+[data-md-color-scheme="slate"] {
+  --sa-edge:      #5F5A80;
+  --sa-underline: var(--sa-lilac);
+  --md-code-bg-color:          #232032;
+  --md-code-bg-color--light:   #272438;
+  --md-code-bg-color--lighter: #2B283E;
+}
+
+/* palette.css declares these on <body>, so match its specificity */
+[data-md-color-scheme="slate"][data-md-color-accent] { --md-accent-fg-color: var(--sa-lilac); }
+[data-md-color-scheme="slate"][data-md-color-primary] { --md-typeset-a-color: var(--sa-ink); }
+
+/* --- 15b. Links: the underline was the only affordance, and it failed ---- */
+
+.md-typeset a { border-bottom-color: var(--sa-underline); }
+
+/* hover becomes a real highlighter: butter behind ink text, legible in both
+   schemes, instead of a butter underline that vanished on paper */
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  background: var(--sa-butter);
+  color: #2B2540;
+  border-bottom-color: #2B2540;
+  border-bottom-width: 3px;
+  border-radius: 3px;
+}
+.md-typeset .md-button:hover,
+.md-typeset .sa-pill:hover,
+.md-typeset .grid.cards a:hover { background: none; }
+.md-typeset .md-button--primary:hover { background: var(--sa-ink); color: var(--sa-paper); }
+.md-typeset .sa-pill:hover { background: var(--sa-lilac); color: #2B2540; }
+
+/* card titles need an affordance of their own: bold alone is not one */
+.md-typeset .grid.cards a { border-bottom: 3px solid transparent; }
+.md-typeset .grid.cards > ul > li:hover a { border-bottom-color: var(--sa-lilac); }
+.md-typeset .grid.cards > ul > li:hover a:hover { background: none; color: var(--sa-ink); }
+
+/* --- 15c. Container edges, which were invisible at 1.25:1 ---------------- */
+
+.md-typeset .grid.cards > ul > li {
+  border-color: var(--sa-edge);
+  box-shadow: 3px 3px 0 var(--sa-line);
+}
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--sa-ink); box-shadow: 5px 5px 0 var(--sa-lilac); }
+.md-typeset table:not([class]) { border-color: var(--sa-edge); }
+.md-typeset .admonition, .md-typeset details { border-color: var(--sa-edge); }
+.sa-row { border-color: var(--sa-edge); }
+
+/* --- 15d. The dashed lead-in never applied ------------------------------- */
+/* `!!! note ""` emits NO title element, so `:empty` matched nothing on all
+   six pages that open this way. */
+
+.md-typeset .admonition.note:not(:has(> .admonition-title)) {
+  border-style: dashed;
+  border-color: var(--sa-lilac);
+}
+
+/* --- 15e. Collapsibles kept Material's purple --------------------------- */
+/* Material types these `.example > summary` (0,2,1); the earlier rule was
+   `details > summary` (0,1,2) and lost. `[class]` lifts it to (0,2,2). */
+
+.md-typeset details[class] > summary {
+  background-color: transparent;
+  border: none;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--sa-ink);
+  padding-left: 2.2rem;
+}
+.md-typeset details[class] > summary::before { background-color: var(--sa-ink); top: .55rem; left: .8rem; }
+.md-typeset details[class] > summary::after  { color: var(--sa-soft); }
+
+/* --- 15f. Mobile drawer: unreadable active link and an indigo slab ------- */
+
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active,
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active:hover,
+.md-nav--primary .md-nav__item--active > .md-nav__link.md-nav__link--active:focus {
+  background: var(--sa-lilac);
+  color: #2B2540;
+}
+.md-nav__source { background-color: var(--sa-lilac); color: #2B2540; }
+.md-nav--primary .md-nav__title { background: var(--sa-paper); color: var(--sa-ink); box-shadow: none; }
+
+/* --- 15g. Search: highlight colour, icon, and the pill losing its shape -- */
+
+.md-search-result mark { color: var(--sa-ink); background-color: var(--sa-butter); }
+.md-search__form .md-search__icon { color: var(--sa-soft); }
+.md-search__form:hover { background: var(--sa-card); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  border-radius: 22px 22px 0 0;
+  box-shadow: none;
+  background: var(--sa-card);
+}
+.md-search__output { border-radius: 0 0 22px 22px; }
+
+/* --- 15h. Back-to-top button and the code copy button ------------------- */
+
+.md-top {
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  border: 2px solid var(--sa-ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-top:focus, .md-top:hover { background: var(--sa-lilac); color: #2B2540; }
+
+.md-code__nav { background-color: var(--sa-card); border: 1.5px solid var(--sa-edge); border-radius: 8px; }
+.md-code__button { color: var(--sa-soft); }
+.md-code__button:hover, .md-code__button.focus-visible { color: var(--sa-ink); }
+
+/* --- 15i. Focus ring failed 3:1 on paper -------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.md-tabs__link:focus-visible,
+.sa-pill:focus-visible {
+  outline: 3px solid var(--sa-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--sa-lilac);
+}
+
+/* --- 15j. Classes I authored and never styled --------------------------- */
+
+.md-typeset .lede,
+.md-typeset .lede p {
+  font-size: .88rem;
+  color: var(--sa-soft);
+  max-width: 60ch;
+}
+
+/* icon squares: cycle every three so a 4-card grid keeps working, and give
+   .sa-icon a default so a fourth row is never left transparent */
+.sa-row .sa-icon { background: var(--sa-lilac); }
+.sa-row:nth-child(3n+1) .sa-icon { background: var(--sa-butter); }
+.sa-row:nth-child(3n+2) .sa-icon { background: var(--sa-mint); }
+
+/* mermaid subgraph clusters were falling back to Material's neutral greys */
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="slate"] {
+  --md-mermaid-node-bg-color: var(--sa-mint);
+}
+
+/* checklist ticks: inline SVG that inherits currentColor, replacing the
+   CDN-hosted Twemoji images whose green could not be themed */
+.md-typeset .sa-check { color: var(--sa-underline); vertical-align: -.15em; }
+
+/* ==========================================================================
+   16. Round two of review notes
+   ========================================================================== */
+
+/* --- Buttons: the offset shadow at rest read as misalignment ------------- */
+
+.sa-hero-buttons { display: flex; gap: .7rem; flex-wrap: wrap; align-items: stretch; }
+.sa-hero-buttons .md-button { margin: 0; }
+
+.md-typeset .md-button,
+.md-typeset .md-button--primary {
+  padding: .58rem 1.25rem;
+  line-height: 1.35;
+  box-shadow: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* the hard shadow now appears only on hover, so both buttons sit flush at rest */
+.md-typeset .md-button:hover,
+.md-typeset .md-button--primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary:hover { background: var(--sa-ink); color: var(--sa-paper); }
+.md-typeset .md-button:not(.md-button--primary):hover { background: var(--sa-card); color: var(--sa-ink); }
+
+/* --- The lead-in box now carries a real title on its own line ------------ */
+
+.md-typeset .admonition.sticker > .admonition-title {
+  display: block;
+  padding-left: 0;
+  margin-bottom: .4rem;
+  font-size: .92rem;
+}
+.md-typeset .admonition.sticker > .admonition-title::before { display: none; }
+
+/* give the headline more room so it sets on three lines, not four */
+.sa-hero { grid-template-columns: 1.38fr .62fr; }
+.sa-hero h1 { font-size: 2.3rem; }
+
+@media screen and (min-width: 76.25em) {
+  .sa-hero h1 { font-size: 2.45rem; }
+}
+
+/* ==========================================================================
+   17. Round three
+   ========================================================================== */
+
+/* --- Buttons and pills were losing their bottom border ------------------- */
+/* The link-underline reset used `border-bottom: none`, which deleted the
+   border of anything whose outline IS a border. Restore it per component. */
+
+.md-typeset a.md-button {
+  border: 2.5px solid var(--sa-ink);
+  border-radius: 999px;
+}
+.md-typeset a.md-button--primary { border-color: var(--sa-ink); }
+.md-typeset a.sa-pill { border: 2px solid var(--sa-ink); border-radius: 999px; }
+
+/* --- Lead-in box: align the title with the body text --------------------- */
+/* Material gives the title a negative side margin so its tint can bleed to
+   the edges. With no tint, that just pushed it left of the paragraph. */
+
+.md-typeset .admonition.sticker > .admonition-title {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+}
+
+/* --- Footer: "Made with" was white on butter, so unreadable -------------- */
+/* Material's `html .md-footer-meta.md-typeset a:hover` (0,3,1) out-specifies
+   the site link rule, so it kept its own colour while the butter highlight
+   from the generic rule still applied. Match its specificity and drop the
+   highlighter in the footer entirely. */
+
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="slate"] {
+  --md-footer-fg-color:          var(--sa-ink);
+  --md-footer-fg-color--light:   var(--sa-soft);
+  --md-footer-fg-color--lighter: var(--sa-soft);
+  --md-footer-bg-color:          var(--sa-paper);
+  --md-footer-bg-color--dark:    var(--sa-paper);
+}
+
+html .md-footer-meta.md-typeset a {
+  color: var(--sa-ink);
+  background: none;
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+html .md-footer-meta.md-typeset a:hover,
+html .md-footer-meta.md-typeset a:focus {
+  color: var(--sa-underline);
+  background: none;
+}
