@@ -8,7 +8,7 @@ hide:
 
 <div markdown>
 
-# Hi, I'm <span class="sa-mark">Sarra</span>.<br>Cloud engineer and technical writer.<br>I test everything I document.
+# Hi, I'm <span class="sa-mark">Sarra</span>.<br>Cloud engineer, technical writer.<br>I test everything I document.
 
 <p class="sa-sub">Cloud and DevOps engineer and technical writer at Vneuron Risk &amp; Compliance.
 More than two years documenting and testing every feature that goes into a guide, in English
