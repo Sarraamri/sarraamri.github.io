@@ -741,3 +741,55 @@ button:focus-visible,
 @media screen and (min-width: 76.25em) {
   .sa-hero h1 { font-size: 2.45rem; }
 }
+
+/* ==========================================================================
+   17. Round three
+   ========================================================================== */
+
+/* --- Buttons and pills were losing their bottom border ------------------- */
+/* The link-underline reset used `border-bottom: none`, which deleted the
+   border of anything whose outline IS a border. Restore it per component. */
+
+.md-typeset a.md-button {
+  border: 2.5px solid var(--sa-ink);
+  border-radius: 999px;
+}
+.md-typeset a.md-button--primary { border-color: var(--sa-ink); }
+.md-typeset a.sa-pill { border: 2px solid var(--sa-ink); border-radius: 999px; }
+
+/* --- Lead-in box: align the title with the body text --------------------- */
+/* Material gives the title a negative side margin so its tint can bleed to
+   the edges. With no tint, that just pushed it left of the paragraph. */
+
+.md-typeset .admonition.sticker > .admonition-title {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+}
+
+/* --- Footer: "Made with" was white on butter, so unreadable -------------- */
+/* Material's `html .md-footer-meta.md-typeset a:hover` (0,3,1) out-specifies
+   the site link rule, so it kept its own colour while the butter highlight
+   from the generic rule still applied. Match its specificity and drop the
+   highlighter in the footer entirely. */
+
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="slate"] {
+  --md-footer-fg-color:          var(--sa-ink);
+  --md-footer-fg-color--light:   var(--sa-soft);
+  --md-footer-fg-color--lighter: var(--sa-soft);
+  --md-footer-bg-color:          var(--sa-paper);
+  --md-footer-bg-color--dark:    var(--sa-paper);
+}
+
+html .md-footer-meta.md-typeset a {
+  color: var(--sa-ink);
+  background: none;
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+html .md-footer-meta.md-typeset a:hover,
+html .md-footer-meta.md-typeset a:focus {
+  color: var(--sa-underline);
+  background: none;
+}

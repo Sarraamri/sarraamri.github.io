@@ -41,9 +41,27 @@ knows one guide has to be able to navigate the next one without relearning anyth
 
 ## How the guides are built
 
-<!-- TODO: describe the shared architecture in your own words: the page structure you reuse
-across all five guides, the conventions (naming, admonitions, figure captions, cross-references),
-and how the EN and FR versions stay in sync. This is the part hiring managers care about. -->
+A chapter starts well before there is anything to write about.
+
+1. **Sprint review and planning.** I attend both, so I know what is coming and can plan the
+   documentation alongside development instead of after it.
+2. **Read the specification tickets.** I go through the specs for everything in scope, and where
+   something is ambiguous I take it to the business analysts rather than guess.
+3. **Talk to the developers.** A specification describes the intent. The developers know what was
+   actually built, and the gap between those two is where documentation usually goes wrong.
+4. **Check the QA tickets, or test it myself.** If QA has already covered the feature and the
+   tickets are in the timeline, I read them. If not, I test the whole thing end to end.
+5. **Raise the defects I find.** Anything broken becomes a bug ticket. I also check that the
+   technical behaviour matches both the functional specification and the business rules behind
+   it, because a feature can work exactly as built and still be wrong for the people who have to
+   use it.
+6. **Write the draft**, then take the screenshots and adjust them.
+7. **Split the chapter into pages.** I plan the chapter as a whole, then divide it into the pages
+   a reader actually needs, adding notes wherever the product will trip someone up.
+8. **Publish it into the guide.**
+
+Steps 1 to 5 are the reason the QA pages on this site exist: by the time I start writing, I have
+already exercised the feature and filed whatever it broke on.
 
 ## Keeping five guides consistent
 
