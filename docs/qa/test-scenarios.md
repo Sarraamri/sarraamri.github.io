@@ -1,4 +1,4 @@
-# Test scenarios for Reis™ TBML
+# Test scenarios for a new product
 
 <span class="badge b-qa">Test design</span><span class="badge b-work">Work</span>
 

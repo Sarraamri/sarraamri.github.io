@@ -1,4 +1,4 @@
-# Containerising the Reis™ KYC platform on Kubernetes
+# Application containerisation on Kubernetes
 
 <span class="badge b-perso">End-of-studies project</span><span class="badge b-qa">Test design</span><span class="badge b-work">Work</span>
 

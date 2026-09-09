@@ -1,4 +1,4 @@
-# The Reis™ user guides
+# User guides and technical docs
 
 <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
 
@@ -18,6 +18,18 @@
 
 What each module does is Vneuron's to describe, not mine. What is mine is the documentation: five
 guides, two languages, one writer, kept consistent with each other and with the product.
+
+## Beyond the user guides
+
+The five guides are the largest piece of the job, not the whole of it. I also produce:
+
+- **API reference documentation**, generated from Swagger and OpenAPI specifications, with
+  Postman collections that illustrate and validate the endpoints they describe.
+- **Technical and installation documentation** written for engineers rather than for end users,
+  covering setup and configuration rather than day-to-day workflows.
+
+<!-- TODO (Sarra): list the technical docs you want named here, for example the MCP server
+installation guide, and anything else that is not an end-user guide. -->
 
 ## Scale
 

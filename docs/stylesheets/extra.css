@@ -697,3 +697,39 @@ button:focus-visible,
 /* checklist ticks: inline SVG that inherits currentColor, replacing the
    CDN-hosted Twemoji images whose green could not be themed */
 .md-typeset .sa-check { color: var(--sa-underline); vertical-align: -.15em; }
+
+/* ==========================================================================
+   16. Round two of review notes
+   ========================================================================== */
+
+/* --- Buttons: the offset shadow at rest read as misalignment ------------- */
+
+.sa-hero-buttons { display: flex; gap: .7rem; flex-wrap: wrap; align-items: stretch; }
+.sa-hero-buttons .md-button { margin: 0; }
+
+.md-typeset .md-button,
+.md-typeset .md-button--primary {
+  padding: .58rem 1.25rem;
+  line-height: 1.35;
+  box-shadow: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* the hard shadow now appears only on hover, so both buttons sit flush at rest */
+.md-typeset .md-button:hover,
+.md-typeset .md-button--primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary:hover { background: var(--sa-ink); color: var(--sa-paper); }
+.md-typeset .md-button:not(.md-button--primary):hover { background: var(--sa-card); color: var(--sa-ink); }
+
+/* --- The lead-in box now carries a real title on its own line ------------ */
+
+.md-typeset .admonition.sticker > .admonition-title {
+  display: block;
+  padding-left: 0;
+  margin-bottom: .4rem;
+  font-size: .92rem;
+}
+.md-typeset .admonition.sticker > .admonition-title::before { display: none; }

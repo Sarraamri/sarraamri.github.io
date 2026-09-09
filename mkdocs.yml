@@ -39,7 +39,7 @@ theme:
     - content.code.copy
 
 extra_css:
-  - stylesheets/extra.css?v=3
+  - stylesheets/extra.css?v=4
 
 markdown_extensions:
   - admonition
@@ -67,17 +67,17 @@ extra:
 
 nav:
   - Home: index.md
+  - Writing:
+      - User guides and technical docs: writing/reis-user-guides.md
+      - New product doc set from scratch: writing/tbml-doc-set.md
+      - Docs QA checklist: writing/docs-qa-checklist.md
   - QA Work:
       - Defects I find while documenting: qa/defects.md
       - Postman collection in CI: qa/postman-ci.md
-      - Test scenarios for Reis™ TBML: qa/test-scenarios.md
-  - Writing:
-      - The Reis™ user guides: writing/reis-user-guides.md
-      - Reis™ TBML, a doc set from scratch: writing/tbml-doc-set.md
-      - Docs QA checklist: writing/docs-qa-checklist.md
+      - Test scenarios for a new product: qa/test-scenarios.md
   - Projects:
       - projects/index.md
-      - Reis™ KYC on Kubernetes: projects/reis-kubernetes.md
+      - Application containerisation: projects/reis-kubernetes.md
       - Manufacturing-order tracking at SAFRAN: projects/safran-manufacturing.md
       - Terraform auto-generated docs: projects/terraform-docs.md
       - Front-end projects: projects/frontend.md

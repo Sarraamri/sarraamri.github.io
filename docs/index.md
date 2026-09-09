@@ -8,10 +8,11 @@ hide:
 
 <div markdown>
 
-# Hi, I'm <span class="sa-mark">Sarra</span>.<br>I write the docs,<br>then I test the product.
+# Hi, I'm <span class="sa-mark">Sarra</span>.<br>Cloud engineer and technical writer.<br>I test everything I document.
 
-<p class="sa-sub">Technical writer at Vneuron Risk &amp; Compliance. Two years documenting the Reis™
-compliance suite in English and French, and testing every feature before it lands in a guide.</p>
+<p class="sa-sub">Cloud and DevOps engineer and technical writer at Vneuron Risk &amp; Compliance.
+More than two years documenting and testing every feature that goes into a guide, in English
+and French.</p>
 
 <div class="sa-hero-buttons" markdown>
 [See my work](projects/index.md){ .md-button .md-button--primary }
@@ -29,15 +30,32 @@ compliance suite in English and French, and testing every feature before it land
 
 </div>
 
-!!! sticker
-    **The medium is the message.** This site is itself a docs-as-code sample: written in Markdown,
-    versioned on [GitHub](https://github.com/Sarraamri/sarraamri.github.io), built with MkDocs
-    Material, and deployed automatically by GitHub Actions on every push:
+!!! sticker "How this site is built"
+
+    This site is itself a docs-as-code sample: written in Markdown, versioned on
+    [GitHub](https://github.com/Sarraamri/sarraamri.github.io), built with MkDocs Material, and
+    deployed automatically by GitHub Actions on every push:
     [see the workflow](https://github.com/Sarraamri/sarraamri.github.io/blob/main/.github/workflows/deploy.yml).
 
 ## Highlights
 
 <div class="grid cards" markdown>
+
+-   :material-book-open-page-variant:{ .lg .middle } **[User guides and technical docs](writing/reis-user-guides.md)**
+
+    ---
+    Five user guides, 400+ pages each, in English and French, plus API references and technical
+    installation docs.
+
+    <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
+
+-   :material-file-document-multiple:{ .lg .middle } **[New product doc set from scratch](writing/tbml-doc-set.md)**
+
+    ---
+    User and admin guides, API references and release notes for a brand-new product, with no
+    existing documentation to build on.
+
+    <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
 
 -   :material-bug:{ .lg .middle } **[Defects I find while documenting](qa/defects.md)**
 
@@ -54,22 +72,7 @@ compliance suite in English and French, and testing every feature before it land
 
     <span class="badge b-qa">API testing</span><span class="badge b-perso">Personal</span>
 
--   :material-book-open-page-variant:{ .lg .middle } **[The Reis™ user guides](writing/reis-user-guides.md)**
-
-    ---
-    Five products, 400+ pages each, in English and French, kept consistent with each other
-    and with the product.
-
-    <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
-
--   :material-file-document-multiple:{ .lg .middle } **[Reis™ TBML, a doc set from scratch](writing/tbml-doc-set.md)**
-
-    ---
-    User & admin guides, API references, release notes for a new product, in English and French.
-
-    <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
-
--   :material-kubernetes:{ .lg .middle } **[Reis™ KYC on Kubernetes](projects/reis-kubernetes.md)**
+-   :material-kubernetes:{ .lg .middle } **[Application containerisation on Kubernetes](projects/reis-kubernetes.md)**
 
     ---
     A platform moved off manual deployment, validated against 16 requirements I wrote first:
@@ -95,7 +98,7 @@ compliance suite in English and French, and testing every feature before it land
 
 <div class="sa-row">
 <span class="sa-icon">📚</span>
-<span>Five Reis™ user guides, 400+ pages each, in English and French, across 3 release cycles and 1 product launch.</span>
+<span>Five Reis™ user guides, 400+ pages each, in English and French, across more than 3 release cycles and more than one product launch.</span>
 </div>
 
 <div class="sa-row">

@@ -11,7 +11,7 @@ projects where I test the docs-as-code practices I write about at work.
 
 <div class="grid cards sa-cards" markdown>
 
--   :material-kubernetes:{ .lg .middle } **[Reis™ KYC on Kubernetes](reis-kubernetes.md)**
+-   :material-kubernetes:{ .lg .middle } **[Application containerisation on Kubernetes](reis-kubernetes.md)**
 
     ---
     Moved a compliance platform off manual deployment onto Kubernetes, with an automated

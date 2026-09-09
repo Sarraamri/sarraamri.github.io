@@ -1,4 +1,4 @@
-# Reis™ TBML: building a documentation set from scratch
+# A new product doc set, built from scratch
 
 <span class="badge b-doc">User docs</span><span class="badge b-work">Work</span>
 
