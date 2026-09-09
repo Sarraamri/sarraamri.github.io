@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+<!--
+  Under-construction banner.
+  To remove it when the portfolio is complete: delete this file, then remove
+  `custom_dir: overrides` and the `announce.dismiss` feature from mkdocs.yml.
+-->
+
+{% block announce %}
+  🚧 <strong>Work in progress</strong> — I'm still adding repo links, screenshots and
+  real examples to the project pages.
+  <a href="{{ config.repo_url }}">Follow along on GitHub</a>.
+{% endblock %}
