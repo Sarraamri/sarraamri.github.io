@@ -1,287 +1,510 @@
 /* ==========================================================================
-   Sarra Amri, portfolio theme
-   Palette: navy #1e3a4c primary, teal #0d9488 accent
+   Sarra Amri, portfolio theme: "notebook" palette
+   Soft lilac paper, chunky ink outlines, hard offset shadows, no blur.
    ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
 
 /* --- 1. Design tokens ---------------------------------------------------- */
 
 :root, [data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #1e3a4c;
-  --md-primary-fg-color--dark:  #16324a;
-  --md-accent-fg-color:         #0d9488;
-  --md-typeset-a-color:         #0b7d73;
+  --sa-paper:  #FBF8FF;
+  --sa-ink:    #2B2540;
+  --sa-soft:   #6C6685;
+  --sa-lilac:  #B9A7FF;
+  --sa-mint:   #A8ECD7;
+  --sa-butter: #FFE29A;
+  --sa-rose:   #FFB8C9;
+  --sa-line:   #E8E3F5;
+  --sa-card:   #ffffff;
 
-  --sa-teal:        #0d9488;
-  --sa-teal-ink:    #0b7d73;
-  --sa-navy:        #1e3a4c;
-  --sa-surface:     #ffffff;
-  --sa-surface-2:   #f6f9fb;
-  --sa-line:        #e4eaf0;
-  --sa-line-strong: #cfdae4;
-  --sa-muted:       #5b6b7a;
-  --sa-radius:      14px;
-  --sa-radius-sm:   9px;
-  --sa-shadow:      0 1px 2px rgba(22,50,74,.05), 0 10px 26px -14px rgba(22,50,74,.20);
-  --sa-shadow-lg:   0 2px 6px rgba(22,50,74,.07), 0 22px 44px -18px rgba(22,50,74,.32);
-  --sa-grad:        linear-gradient(105deg, #142c3f 0%, #1e3a4c 55%, #14564f 100%);
+  --sa-radius:    22px;
+  --sa-radius-sm: 16px;
+  --sa-outline:   2.5px;
+
+  /* Material plumbing: fg on the header bar is its background, bg is its text */
+  --md-primary-fg-color:    var(--sa-paper);
+  --md-primary-bg-color:    var(--sa-ink);
+  --md-accent-fg-color:     var(--sa-lilac);
+  --md-default-bg-color:    var(--sa-paper);
+  --md-default-fg-color:    var(--sa-ink);
+  --md-typeset-a-color:     var(--sa-ink);
+  --md-typeset-color:       var(--sa-ink);
+
+  /* keep the diagrams on-palette instead of leaving them navy */
+  --md-mermaid-node-bg-color:    var(--sa-mint);
+  --md-mermaid-node-fg-color:    var(--sa-ink);
+  --md-mermaid-label-fg-color:   var(--sa-ink);
+  --md-mermaid-edge-color:       var(--sa-ink);
+  --md-mermaid-font-family:      "Nunito", sans-serif;
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:  #16324a;
-  --md-accent-fg-color:   #2dd4bf;
-  --md-typeset-a-color:   #2dd4bf;
+  --sa-paper:  #1E1B2E;
+  --sa-ink:    #F3EFFF;
+  --sa-soft:   #A79FC4;
+  --sa-line:   #3A3556;
+  --sa-card:   #2A2640;
+  /* the four accents stay identical so the site reads the same in both modes */
 
-  --sa-teal:        #2dd4bf;
-  --sa-teal-ink:    #5eead4;
-  --sa-surface:     #1b2733;
-  --sa-surface-2:   #16212c;
-  --sa-line:        #2c3a49;
-  --sa-line-strong: #3b4c5e;
-  --sa-muted:       #9fb0c0;
-  --sa-shadow:      0 1px 2px rgba(0,0,0,.30), 0 10px 26px -14px rgba(0,0,0,.55);
-  --sa-shadow-lg:   0 2px 6px rgba(0,0,0,.35), 0 22px 44px -18px rgba(0,0,0,.65);
-  --sa-grad:        linear-gradient(105deg, #0f2231 0%, #16324a 55%, #12433f 100%);
+  --md-primary-fg-color: var(--sa-paper);
+  --md-primary-bg-color: var(--sa-ink);
+  --md-default-bg-color: var(--sa-paper);
+  --md-default-fg-color: var(--sa-ink);
+  --md-typeset-a-color:  var(--sa-ink);
+
+  --md-mermaid-node-bg-color:  #3a3556;
+  --md-mermaid-node-fg-color:  var(--sa-ink);
+  --md-mermaid-label-fg-color: var(--sa-ink);
+  --md-mermaid-edge-color:     var(--sa-ink);
 }
 
 /* --- 2. Typography ------------------------------------------------------- */
 
-.md-typeset {
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-header__title,
+.sa-display {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
-.md-typeset h1 {
-  font-weight: 700;
-  letter-spacing: -.022em;
-  color: var(--md-default-fg-color);
-  margin-bottom: .5em;
-}
+.md-typeset h1 { font-size: 2.1rem; line-height: 1.1; color: var(--sa-ink); }
+.md-typeset h2 { font-size: 1.45rem; line-height: 1.2; margin-top: 2.2em; }
+.md-typeset h3 { font-size: 1.1rem; }
+.md-typeset    { font-size: .8rem; line-height: 1.62; }
+.md-typeset p  { max-width: 70ch; }
 
-.md-typeset h2 {
-  font-weight: 650;
-  letter-spacing: -.014em;
-  margin-top: 2.4em;
-}
-
-.md-typeset h3 {
-  font-weight: 620;
-  letter-spacing: -.008em;
-}
-
+/* links: lilac underline that becomes a butter highlighter on hover */
 .md-typeset a {
-  text-underline-offset: .18em;
-  transition: color .15s ease;
+  color: var(--sa-ink);
+  text-decoration: none;
+  border-bottom: 3px solid var(--sa-lilac);
+  padding-bottom: 1px;
+  transition: border-color .15s ease, border-width .15s ease;
 }
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  border-bottom-color: var(--sa-butter);
+  border-bottom-width: 6px;
+}
+.md-typeset a.md-button,
+.md-typeset a.sa-btn,
+.md-typeset .sa-pill,
+.md-typeset .grid.cards a,
+.md-typeset .md-nav a { border-bottom: none; }
 
-/* --- 3. Header, tabs, announcement bar ----------------------------------- */
+/* chrome links keep their own styling, no highlighter */
+.md-footer a,
+.md-footer__link,
+.md-copyright a,
+.md-social__link,
+.md-header a,
+.md-tabs a { border-bottom: none !important; }
+
+/* --- 3. Header, tabs, banner -------------------------------------------- */
 
 .md-header {
-  background-image: var(--sa-grad);
-  box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 4px 20px -8px rgba(0,0,0,.45);
+  background-color: var(--sa-paper);
+  color: var(--sa-ink);
+  box-shadow: none;
+  border-bottom: 1.5px solid var(--sa-line);
 }
+
+.md-header__title { font-size: 1.05rem; }
 
 .md-tabs {
-  background-image: var(--sa-grad);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  background-color: var(--sa-paper);
+  color: var(--sa-ink);
+  border-bottom: 1.5px solid var(--sa-line);
 }
+
+.md-tabs__list { padding: .35rem 0; }
 
 .md-tabs__link {
-  opacity: .78;
-  font-weight: 500;
-  transition: opacity .15s ease;
-}
-
-.md-tabs__link:hover { opacity: 1; }
-
-/* underline the active section tab */
-.md-tabs__item--active .md-tabs__link {
   opacity: 1;
-  font-weight: 620;
-  position: relative;
+  color: var(--sa-soft);
+  font-weight: 700;
+  padding: .32rem .8rem;
+  border-radius: 999px;
+  margin-right: .3rem;
+  transition: background-color .15s ease, color .15s ease;
+}
+.md-tabs__link:hover { background: var(--sa-line); color: var(--sa-ink); }
+.md-tabs__item--active .md-tabs__link {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
 }
 
-.md-tabs__item--active .md-tabs__link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -.55rem;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--sa-teal);
+/* search field as a rounded outline */
+.md-search__form {
+  border-radius: 999px;
+  background: var(--sa-card);
+  border: 1.5px solid var(--sa-line);
+  box-shadow: none;
 }
+.md-search__input { color: var(--sa-ink); }
+.md-search__input::placeholder { color: var(--sa-soft); }
+.md-search__icon { color: var(--sa-soft); }
 
+/* the work-in-progress bar becomes a rose sticker strip */
 .md-banner {
-  background: var(--sa-navy);
-  border-bottom: 2px solid var(--sa-teal);
+  background: var(--sa-rose);
+  color: #2B2540;
+  border-bottom: var(--sa-outline) solid #2B2540;
   font-size: .74rem;
+  font-weight: 700;
+}
+.md-banner a { color: #2B2540; border-bottom: 3px solid #2B2540; }
+.md-banner__button { color: #2B2540; }
+
+/* --- 4. Sidebar and table of contents ----------------------------------- */
+
+.md-nav__title { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600; color: var(--sa-ink); }
+
+.md-nav__link {
+  border-radius: 999px;
+  padding: .28rem .6rem;
+  color: var(--sa-soft);
+  font-weight: 700;
+}
+.md-nav__link:hover { background: var(--sa-line); color: var(--sa-ink); }
+
+.md-nav__item .md-nav__link--active {
+  background: var(--sa-lilac);
+  color: #2B2540;
 }
 
-/* the banner is navy in both schemes, so it always needs the light teal */
-.md-banner a {
-  color: #5eead4;
-  text-underline-offset: .2em;
+/* right-hand table of contents: lilac bar on the active item */
+.md-nav--secondary .md-nav__link {
+  border-radius: 0;
+  border-left: 3px solid transparent;
+  padding-left: .6rem;
+  font-weight: 400;
 }
-
-/* --- 4. Hero and lede ---------------------------------------------------- */
-
-.hero {
-  padding: .4rem 0 1.6rem;
-  border-bottom: 1px solid var(--sa-line);
-  margin-bottom: 2rem;
-}
-
-.hero .tagline {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--sa-teal-ink);
-  letter-spacing: -.01em;
-  margin: -.2rem 0 .9rem;
-}
-
-.hero p:not(.tagline) {
-  color: var(--sa-muted);
-  max-width: 42rem;
-}
-
-.lede {
-  font-size: .88rem;
-  color: var(--sa-muted);
-  max-width: 44rem;
-  margin-bottom: 1.8rem;
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__link--passed:hover {
+  background: none;
+  border-left-color: var(--sa-lilac);
+  border-radius: 3px;
+  color: var(--sa-ink);
+  font-weight: 700;
 }
 
 /* --- 5. Cards ------------------------------------------------------------ */
 
 .md-typeset .grid.cards > ul > li {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--sa-line);
+  border: var(--sa-outline) solid var(--sa-line);
   border-radius: var(--sa-radius);
-  background: var(--sa-surface);
-  box-shadow: var(--sa-shadow);
-  padding: 1.15rem 1.2rem 1.05rem;
-  transition: transform .2s cubic-bezier(.2,.7,.3,1),
-              box-shadow .2s ease,
-              border-color .2s ease;
+  background: var(--sa-card);
+  box-shadow: none;
+  padding: 1.25rem 1.3rem;
+  transition: transform .18s ease, border-color .18s ease;
 }
-
-/* accent bar that fills in on hover */
-.md-typeset .grid.cards > ul > li::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--sa-teal);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .25s cubic-bezier(.2,.7,.3,1);
-}
-
 .md-typeset .grid.cards > ul > li:hover {
-  transform: translateY(-3px);
-  border-color: var(--sa-line-strong);
-  box-shadow: var(--sa-shadow-lg);
+  border-color: var(--sa-ink);
+  transform: translateY(-2px);
 }
 
-.md-typeset .grid.cards > ul > li:hover::before { transform: scaleX(1); }
+/* icon square, coloured per card via nth-child so no markup change is needed */
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji:first-child,
+.md-typeset .grid.cards > ul > li > p:first-child > svg:first-child {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 14px;
+  padding: .45rem;
+  margin-bottom: .55rem;
+  color: #2B2540;
+  background: var(--sa-lilac);
+}
+.md-typeset .grid.cards > ul > li:nth-child(3n+1) > p:first-child > .twemoji:first-child { background: var(--sa-mint); }
+.md-typeset .grid.cards > ul > li:nth-child(3n+2) > p:first-child > .twemoji:first-child { background: var(--sa-butter); }
 
 .md-typeset .grid.cards > ul > li > hr {
-  margin: .7rem 0 .8rem;
-  border-color: var(--sa-line);
+  border: none;
+  border-top: 1.5px solid var(--sa-line);
+  margin: .6rem 0 .75rem;
 }
 
-.md-typeset .grid.cards > ul > li .twemoji.lg,
-.md-typeset .grid.cards > ul > li svg {
-  color: var(--sa-teal);
-}
+.md-typeset .grid.cards > ul > li p:not(:first-child) { color: var(--sa-soft); }
 
-/* the project overview grid gets a little more room per card */
-.sa-cards.grid.cards > ul > li { padding: 1.3rem 1.35rem 1.2rem; }
-
-/* --- 6. Badges ----------------------------------------------------------- */
+/* --- 6. Badges as clean pills ------------------------------------------- */
 
 .badge {
   display: inline-block;
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .012em;
-  padding: .16rem .55rem;
+  font-family: "Nunito", sans-serif;
+  font-size: .62rem;
+  font-weight: 800;
+  padding: .18rem .6rem;
   border-radius: 999px;
-  margin: 0 .28rem .3rem 0;
-  border: 1px solid transparent;
+  margin: .35rem .3rem 0 0;
+  border: 2px solid #2B2540;
+  color: #2B2540;
   white-space: nowrap;
 }
 
-.b-work  { background: #fff2e2; color: #8f5300; border-color: #f6dfc2; }
-.b-perso { background: #e4f5eb; color: #17643a; border-color: #c8e8d6; }
-.b-qa    { background: #f0e8f7; color: #56297e; border-color: #ded0ec; }
-.b-doc   { background: #e5eef7; color: #1b4a75; border-color: #cbdeee; }
+.b-work  { background: var(--sa-rose); }
+.b-perso { background: var(--sa-mint); }
+.b-qa    { background: var(--sa-lilac); }
+.b-doc   { background: var(--sa-butter); }
 
-[data-md-color-scheme="slate"] .b-work  { background: #402d0e; color: #ffd699; border-color: #5c441c; }
-[data-md-color-scheme="slate"] .b-perso { background: #123522; color: #a3e0bd; border-color: #1e5236; }
-[data-md-color-scheme="slate"] .b-qa    { background: #2e1c40; color: #d9c2ef; border-color: #452c5e; }
-[data-md-color-scheme="slate"] .b-doc   { background: #142b3f; color: #b3d4ee; border-color: #234057; }
+/* the accents are identical in dark mode, so keep ink text on them */
+[data-md-color-scheme="slate"] .badge { border-color: #2B2540; color: #2B2540; }
 
-/* --- 7. Tables ----------------------------------------------------------- */
+/* --- 7. Buttons ---------------------------------------------------------- */
+
+.md-typeset .md-button {
+  border-radius: 999px;
+  border: var(--sa-outline) solid var(--sa-ink);
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  font-weight: 800;
+  font-size: .74rem;
+  padding: .5rem 1.1rem;
+  box-shadow: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.md-typeset .md-button:hover {
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  border-color: var(--sa-ink);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
+  box-shadow: 4px 4px 0 var(--sa-lilac);
+}
+.md-typeset .md-button--primary:hover {
+  background: var(--sa-ink);
+  color: var(--sa-paper);
+}
+
+/* --- 8. Tables ----------------------------------------------------------- */
 
 .md-typeset table:not([class]) {
-  border: 1px solid var(--sa-line);
+  border: 2px solid var(--sa-line);
   border-radius: var(--sa-radius-sm);
-  box-shadow: none;
   overflow: hidden;
-  font-size: .74rem;
+  box-shadow: none;
+  font-size: .72rem;
 }
-
 .md-typeset table:not([class]) th {
-  background: var(--sa-surface-2);
-  font-weight: 640;
-  letter-spacing: .006em;
-  border-bottom: 1px solid var(--sa-line-strong);
+  background: var(--sa-line);
+  color: var(--sa-ink);
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  border: none;
 }
+.md-typeset table:not([class]) td {
+  border-top: 1.5px solid var(--sa-line);
+  color: var(--sa-soft);
+}
+.md-typeset table:not([class]) td:first-child { color: var(--sa-ink); font-weight: 700; }
+.md-typeset table:not([class]) tr:hover td { background: color-mix(in srgb, var(--sa-line) 45%, transparent); }
 
-.md-typeset table:not([class]) td { border-top: 1px solid var(--sa-line); }
-
-.md-typeset table:not([class]) tr:hover td { background: var(--sa-surface-2); }
-
-/* --- 8. Admonitions and collapsibles ------------------------------------- */
+/* --- 9. Admonitions ------------------------------------------------------ */
 
 .md-typeset .admonition,
 .md-typeset details {
-  border: 1px solid var(--sa-line);
-  border-left-width: 3px;
-  border-radius: var(--sa-radius-sm);
+  border: var(--sa-outline) solid var(--sa-line);
+  border-radius: var(--sa-radius);
+  background: var(--sa-card);
   box-shadow: none;
-  font-size: .76rem;
+  font-size: .75rem;
 }
-
 .md-typeset .admonition-title,
 .md-typeset summary {
-  font-weight: 620;
-  letter-spacing: -.004em;
+  background: none;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--sa-ink);
 }
-
-.md-typeset details summary { cursor: pointer; }
-
-/* --- 9. Code ------------------------------------------------------------- */
-
-.md-typeset code {
-  border-radius: 5px;
-  font-size: .84em;
-  padding: .12em .38em;
+/* Material draws the type icon in a coloured strip; make it a rounded chip */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  border-radius: 8px;
+  padding: .1rem;
 }
+.md-typeset .note        { border-color: var(--sa-lilac); }
+.md-typeset .tip         { border-color: var(--sa-mint); }
+.md-typeset .warning     { border-color: var(--sa-butter); }
+.md-typeset .failure,
+.md-typeset .danger      { border-color: var(--sa-rose); }
+.md-typeset .success     { border-color: var(--sa-mint); }
+.md-typeset .example     { border-color: var(--sa-line); }
 
+/* a dashed "sticker" box for page lead-ins */
+.md-typeset .sticker {
+  border-style: dashed;
+  border-color: var(--sa-lilac);
+}
+.md-typeset .sticker > .admonition-title { display: none; }
+
+/* an empty-title note reads as a lead paragraph, so hide the bar */
+.md-typeset .admonition > .admonition-title:empty { display: none; }
+
+/* --- 10. Code ------------------------------------------------------------ */
+
+.md-typeset code { border-radius: 6px; font-size: .8em; }
 .md-typeset pre > code { border-radius: var(--sa-radius-sm); }
 
-/* --- 10. Footer ---------------------------------------------------------- */
+/* --- 11. Footer ---------------------------------------------------------- */
 
-.md-footer-meta { background: var(--sa-navy); }
+.md-footer,
+.md-footer-meta {
+  background: var(--sa-paper);
+  color: var(--sa-soft);
+  border-top: 1.5px solid var(--sa-line);
+}
+.md-footer__link { color: var(--sa-ink); }
+.md-footer__title { font-family: "Fredoka", "Nunito", sans-serif; }
+.md-copyright, .md-copyright__highlight { color: var(--sa-soft); }
+.md-copyright a, .md-footer-meta a { color: var(--sa-ink); text-decoration: underline; }
+.md-social__link { color: var(--sa-ink); }
 
-/* --- 11. Motion ---------------------------------------------------------- */
+/* --- 12. Home page hero -------------------------------------------------- */
+
+.sa-hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2.2rem;
+  align-items: center;
+  margin: .5rem 0 2.2rem;
+}
+
+.sa-hero h1 {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.06;
+  margin: 0 0 .7rem;
+  color: var(--sa-ink);
+}
+
+/* butter highlighter behind one word */
+.sa-mark { position: relative; z-index: 0; }
+.sa-mark::after {
+  content: "";
+  position: absolute;
+  left: -4px; right: -4px; bottom: 5px;
+  height: .38em;
+  background: var(--sa-butter);
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+  z-index: -1;
+}
+
+/* in dark mode the light text cannot sit on butter, so the highlighter
+   becomes a full block with ink text instead of an underline swipe */
+[data-md-color-scheme="slate"] .sa-mark { color: #2B2540; }
+[data-md-color-scheme="slate"] .sa-mark::after {
+  height: 1.02em;
+  bottom: -.02em;
+  border-radius: 6px;
+}
+
+.sa-hero .sa-sub {
+  font-size: .86rem;
+  color: var(--sa-soft);
+  line-height: 1.55;
+  max-width: 34rem;
+  margin-bottom: 1.1rem;
+}
+
+.sa-hero-buttons { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+/* mint blob with a round portrait on top */
+.sa-blob-wrap { position: relative; min-height: 15rem; }
+.sa-blob {
+  position: absolute;
+  inset: 1rem 2rem;
+  background: var(--sa-mint);
+  border-radius: 52% 48% 60% 40% / 45% 55% 45% 55%;
+}
+.sa-portrait {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 9rem; height: 9rem;
+  border-radius: 50%;
+  background: var(--sa-card);
+  border: 4px solid #2B2540;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  overflow: hidden;
+}
+.sa-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- 13. At a glance rows ------------------------------------------------ */
+
+.sa-rows { display: grid; gap: .6rem; margin: .8rem 0 0; }
+
+.sa-row {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: .7rem .9rem;
+  border: 2px solid var(--sa-line);
+  border-radius: 18px;
+  background: var(--sa-card);
+  font-size: .76rem;
+}
+.sa-row .sa-icon {
+  flex: none;
+  width: 2.2rem; height: 2.2rem;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+}
+.sa-row:nth-child(1) .sa-icon { background: var(--sa-butter); }
+.sa-row:nth-child(2) .sa-icon { background: var(--sa-mint); }
+.sa-row:nth-child(3) .sa-icon { background: var(--sa-lilac); }
+
+.sa-pills { display: flex; gap: .4rem; flex-wrap: wrap; }
+.sa-pill {
+  padding: .28rem .7rem;
+  border-radius: 999px;
+  border: 2px solid var(--sa-ink);
+  background: var(--sa-card);
+  color: var(--sa-ink);
+  font-weight: 800;
+  font-size: .68rem;
+  text-decoration: none;
+}
+.sa-pill:hover { background: var(--sa-lilac); color: #2B2540; }
+
+/* --- 14. Focus, responsive, motion --------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.md-tabs__link:focus-visible,
+.sa-pill:focus-visible {
+  outline: 3px solid var(--sa-lilac);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .sa-hero { grid-template-columns: 1fr; gap: 1.2rem; }
+  .sa-hero h1 { font-size: 2rem; }
+  .sa-blob-wrap { min-height: 12rem; order: -1; }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .sa-hero h1 { font-size: 1.7rem; }
+  .sa-row { font-size: .72rem; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .md-typeset .grid.cards > ul > li,
-  .md-typeset .grid.cards > ul > li::before {
-    transition: none;
-  }
-  .md-typeset .grid.cards > ul > li:hover { transform: none; }
+  .md-typeset .md-button { transition: none; }
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .md-button:hover { transform: none; }
 }

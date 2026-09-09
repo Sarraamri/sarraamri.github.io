@@ -9,7 +9,7 @@ theme:
   custom_dir: overrides
   language: en
   font:
-    text: Inter
+    text: Nunito
     code: JetBrains Mono
   icon:
     logo: material/book-open-page-variant
