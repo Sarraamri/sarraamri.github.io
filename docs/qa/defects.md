@@ -5,48 +5,59 @@
 !!! note "Why writers find bugs"
     Documenting a feature means executing every step of it — which makes technical writers
     accidental exploratory testers. I file Jira tickets for the defects and product gaps I find
-    while writing. Below: my reporting format and sanitized real examples.
+    while writing. Below: the format every one of those reports follows.
 
 ## My report format
 
-Every report includes a one-line summary (*[where] — [what goes wrong] [under what condition]*),
-environment details, numbered steps to reproduce, expected vs. actual result, severity and
-priority, and evidence (screenshot or recording).
+| Field | What I put in it |
+| --- | --- |
+| **Summary** | One line — where it happens, what goes wrong, under what condition |
+| **Severity / Priority** | Severity from user impact, priority from release urgency; the two are not the same |
+| **Environment** | Module, build version, browser, and the role I was signed in as |
+| **Steps to reproduce** | Numbered, from a known starting state, one action per step — including the input path, because mouse and keyboard don't always behave the same |
+| **Expected** | What the specification or the documentation says should happen |
+| **Actual** | What happens instead, and whether the state recovers on refresh |
+| **Evidence** | Annotated screenshot or a short recording |
+| **Insight note** | Why it matters, which user path is affected, and the reasoning behind the severity |
+
+!!! warning "Confidentiality"
+    Reis™ is compliance software for financial institutions. Examples on this site are sanitized —
+    no client names, no real data, no internal screenshots. Structure and approach are shown;
+    specifics are not.
+
+<!-- ==========================================================================
+     TODO (Sarra): paste one real Jira ticket in chat and I'll anonymize it
+     into the section below, then uncomment it. Two more go in "Full report
+     set" as ??? example collapsibles.
 
 ## Example report *(sanitized)*
 
 | Field | Value |
 | --- | --- |
-| **Summary** | [Screen] — [what breaks] [under what condition] `TODO: rewrite from a real ticket` |
-| **Severity / Priority** | Major / High |
-| **Environment** | [Product module] · staging build [version] |
+| **Summary** |  |
+| **Severity / Priority** |  |
+| **Environment** |  |
 
 **Steps to reproduce**
 
-1. Open [screen] as [role]
-2. Enter [input] in [field]
-3. Trigger [action] via keyboard (Tab + Enter)
-4. Observe the [result area]
+1.
+2.
+3.
 
 !!! success "Expected"
-    What the spec / documentation says should happen.
 
 !!! failure "Actual"
-    What actually happens, including how to recover (e.g., refresh corrects the state).
-
-<!-- TODO: add one sanitized annotated screenshot here:
-![Annotated screenshot of the defect](../assets/defect-example.png) -->
 
 !!! warning "Insight note"
-    The judgment part: why it matters, which user path is affected, and the reasoning behind the
-    severity. This is what separates a report from a complaint.
+
+![Annotated screenshot of the defect](../assets/defect-example.png)
 
 ## Full report set
 
-<!-- TODO: add 2–3 more sanitized reports, each in a collapsible block like this: -->
-
-??? example "BUG-00X — [summary line]"
+??? example "BUG-00X — summary line"
     Environment · steps · expected vs. actual · severity reasoning.
+
+     ========================================================================== -->
 
 ## What this shows
 
